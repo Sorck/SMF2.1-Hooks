@@ -22,8 +22,8 @@
 		<tbody>
 			<tr ng-repeat="hook in hooks">
 				<td>{{hook.hook}}</td>
-				<td>{{hook.file}}</td>
-				<td>{{hook.line}}</td>
+				<td><a href="https://github.com/SimpleMachines/SMF2.1/blob/release-2.1/{{hook.file}}">{{hook.file}}</a></td>
+				<td><a href="https://github.com/SimpleMachines/SMF2.1/blob/release-2.1/{{hook.file}}#L{{hook.line}}">{{hook.line}}</a></td>
 				<td>{{hook.param}}</td>
 			</tr>
 		</tbody>
