@@ -1,0 +1,19 @@
+title: integrate_pre_log_stats
+params:
+	- &$no_stat_actions
+docs: |
+	Example usage:
+	```php
+	function my_pre_log_stats(&$no_stat_actions)
+	{
+		// Don't record users as being online if they are on the admin pages
+		// (i.e. those with ?action=admin in them)
+		$no_stat_actions[] = 'admin';
+	}```
+	The result is that, when you navigate to ./index.php?action=admin, you will
+	no longer be recorded in the who's online log.
+	
+	This feature is internally used for downloading attachments, handling
+	likes, performing AJAX requests for search suggestions and the likes. I.e.
+	use it when it makes no sense to tell others that that's what the user is
+	doing.

@@ -1,0 +1,48 @@
+title: integrate_admin_search
+params:
+	- &$language_files
+	- &$include_files
+	- &$settings_search
+docs: |
+	Example usage:
+	```php
+	function my_admin_search(&$language_files, &$include_files, &$settings_search)
+	{
+		// We have our search language strings in myLang language file
+		$language_files[] = 'myLang';
+		// Include the file that contains the search settings info for our
+		// section.
+		$include_files[] = 'mySourceFile';
+		// Add our search from the following function
+		$settings_search[] = array('MyModSettings', 'area=modifications;sa=myMod');
+	}
+	// And in mySourceFile.php
+	function MyModSettings($return_config = false)
+	{
+		/**
+		 * Defines a simple mod page - i.e. one which includes a permission
+		 * selection for the manage_my_mod permission, a title of Settings,
+		 * localised using language files, and a checkbox that toggles the
+		 * $modSettings['enable_mod'] setting.
+		 */
+		$config_vars = array(
+			array('title', 'settings')
+			array('permissions', 'manage_my_mod'),
+			'',
+			array('check', 'enable_mod')
+		);
+		
+		if ($return_config)
+			/**
+			 * NB: This doesn't actually include the logic to output this to
+			 * the user but it does define the logic sufficiently to help the
+			 * search utility search within our page.
+			 * See ManageSmileys.php lines 152 to 182 (in SMF 2.1 beta 1) for
+			 * code to output the form.
+			 */
+			return $config_vars;
+	}
+	```
+	This allows you to find myMod pages within the admin search section. It
+	searches over text in your pages so, if you have a button which mentions
+	smileys in it's help text, it will appear in the search pages.

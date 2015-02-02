@@ -1,0 +1,13 @@
+title: integrate_actions
+params:
+	- &$actionArray
+docs: |
+	Example usage:
+	```php
+	function my_actions(&$actionArray)
+	{
+		$actionArray['myNewAction'] = array('myFile.php', 'myFunction');
+	}```
+	The result is that, when you navigate to ./index.php?action=myNewAction,
+	the file ```myFile.php``` in the Sources directory is loaded and the function
+	```myFunction()``` is called.
