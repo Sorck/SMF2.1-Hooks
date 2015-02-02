@@ -1,0 +1,32 @@
+title: integrate_manage_logs
+params:
+	- &$log_functions
+docs: |
+	Example usage:
+	```php
+	function my_manage_logs(&$log_functions)
+	{
+		// Add a log function link in a similar way to that done in
+		// the index.php actions array. Of the form
+		// $subAction => array($file, function[, $disabled = false])
+		$log_functions['mylog'] = array('MyLogFile.php', 'MyLogFunction');
+	}
+	// And in MyLogFile.php
+	function MyLogFunction($return_config = false)
+	{
+		/**
+		 * NB: You would need to actually implement the code to
+		 * output the log information. See ManageBans.php line 1988
+		 * to 2133 in SMF 2.1 Beta 1 for an example function.
+		 * 
+		 * You may also wish to add to
+		 * ```$context[$context['admin_menu_name']]['tab_data']```
+		 * as it contains tab information that is useful if you want
+		 * admin's to find your page and know what it does. See
+		 * Admin.php lines 908 to 937.
+		 */
+	}
+	```
+	This allows you to handle handle log functions in the admin
+	centre - they can be accessed at 
+	```./index.php?action=admin;area=logs;sa=$subAction```.
