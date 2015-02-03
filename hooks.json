@@ -1589,73 +1589,91 @@
             "line": "472",
             "hook": "integrate_upload_template",
             "param": ""
-        }
-    ],
-    "unparsed": [
-        {
-            "code": "\tLine 235: \t\t\t$can_like = call_integration_hook('integrate_valid_likes', array($this->_type, $this->_content, $this->_sa, $this->_js, $this->_extra));\n",
+        },
+		{
+            "hook": "integrate_valid_likes",
+			"param": "array($this->_type, $this->_content, $this->_sa, $this->_js, $this->_extra)",
+            "file": "Sources/Likes.php",
+            "line": "235"
+        },
+		{
+            "hook": "integrate_valid_likes",
+			"param": "array($this->_type, $this->_content, $this->_sa, $this->_js, $this->_extra)",
             "file": "Sources/Likes.php",
             "line": "235"
         },
         {
-            "code": "\tLine 278: \tif (count($integration_ids = call_integration_hook('integrate_verify_user')) > 0)\n",
+            "hook": "integrate_verify_user",
+			"param": "",
             "file": "Sources/Load.php",
             "line": "278"
         },
         {
-            "code": "\tLine 85: \t\tcall_integration_hook('mention_insert_' . $content_type, array($content_id, &$members));\n",
+            "hook": "mention_insert_{$content_type}",
+			"param": "array($content_id, &$members)",
             "file": "Sources/Mentions.php",
             "line": "85"
         },
         {
-            "code": "\tLine 1236: \t$hook_errors = call_integration_hook('integrate_save_custom_profile_fields', array(&$changes, &$log_changes, &$errors, $returnErrors, $memID, $area, $sanitize));\n",
+            "hook": "integrate_save_custom_profile_fields",
+			"param": "array(&$changes, &$log_changes, &$errors, $returnErrors, $memID, $area, $sanitize)",
             "file": "Sources/Profile-Modify.php",
             "line": "1236"
         },
         {
-            "code": "\tLine 601: \t\t\t$good_password = in_array(true, call_integration_hook('integrate_verify_password', array($cur_profile['member_name'], $_POST['oldpasswrd'], false)), true);\n",
+            "hook": "integrate_verify_password",
+			"param": "array($cur_profile['member_name'], $_POST['oldpasswrd'], false)), true)",
             "file": "Sources/Profile.php",
             "line": "601"
         },
         {
-            "code": "\tLine 70: \tcall_integration_hook('integrate_reported_' . $context['report_type'], array(&$subActions));\n",
+            "hook": "integrate_reported_{$context['report_type']}",
+			"param": "array(&$subActions)",
             "file": "Sources/ReportedContent.php",
             "line": "70"
         },
         {
-            "code": "\tLine 58: \t\t$good_password = in_array(true, call_integration_hook('integrate_verify_password', array($user_info['username'], $_POST[$type . '_pass'], false)), true);\n",
+            "hook": "integrate_verify_password",
+			"param": "array($user_info['username'], $_POST[$type . '_pass'], false)), true)",
             "file": "Sources/Security.php",
             "line": "58"
         },
         {
-            "code": "\tLine 34: \tcall_integration_hook('integrate_' . $listOptions['id'], array(&$listOptions));\n",
+            "hook": "integrate_{$listOptions['id']}",
+			"param": "array(&$listOptions)",
             "file": "Sources/Subs-List.php",
             "line": "34"
         },
         {
-            "code": "\tLine 68: \t\tcall_integration_hook('integrate_' . $menu_context['current_action'] . '_areas', array(&$menuData));\n",
+            "hook": "integrate_{$menu_context['current_action']}_areas"
+			"param": "array(&$menuData)",
             "file": "Sources/Subs-Menu.php",
             "line": "68"
         },
         {
-            "code": "\tLine 608: \tif (in_array(false, call_integration_hook('integrate_outgoing_email', array(&$subject, &$message, &$headers)), true))\n",
+            "hook": "integrate_outgoing_email",
+			"param": "array(&$subject, &$message, &$headers)), true)",
             "file": "Sources/Subs-Post.php",
             "line": "608"
         },
         {
-            "code": "\tLine 4033: function call_integration_hook($hook, $parameters = array())\n",
-            "file": "Sources/Subs.php",
-            "line": "4033"
-        },
-        {
-            "code": "\tLine 54: \t\t\t$hook_results = call_integration_hook('integrate_find_like_author', array($this->_details['content_type'], $this->_details['content_id']));\n",
+            "hook": "integrate_find_like_author",
+			"param": "array($this->_details['content_type'], $this->_details['content_id'])",
             "file": "Sources/Likes-Notify.php",
             "line": "54"
         },
         {
-            "code": "\tLine 435: \t\tif (count($integrate_actions = call_integration_hook('integrate_whos_online', array($actions))) > 0)\n",
+            "hook": "integrate_whos_online",
+			"param": "array($actions)",
             "file": "Sources/Who.php",
             "line": "435"
+        }
+    ],
+    "unparsed": [
+        {
+            "code": "\tLine 4033: function call_integration_hook($hook, $parameters = array())\n",
+            "file": "Sources/Subs.php",
+            "line": "4033"
         }
     ]
 }
