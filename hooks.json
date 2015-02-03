@@ -1645,7 +1645,7 @@
             "line": "34"
         },
         {
-            "hook": "integrate_{$menu_context['current_action']}_areas"
+            "hook": "integrate_{$menu_context['current_action']}_areas",
 			"param": "array(&$menuData)",
             "file": "Sources/Subs-Menu.php",
             "line": "68"
