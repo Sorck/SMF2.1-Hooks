@@ -1,0 +1,34 @@
+title: integrate_alert_types
+params:
+	- &$alert_types
+	- &$group_options
+	- &$disabled_options
+docs: |
+	Example usage:
+	```php
+	function my_alert_types(&$alert_types, &$group_options, &$disabled_options)
+	{
+		// Simulate a 'poke' alert
+		
+		// NB, valid indices are 'always', 'yes' and 'never'
+		$alert_types['members']['poke'] = array(
+			// Should it issue an alert?
+			'alert' => 'yes',
+			// Should an e-mail be sent about it?
+			'email' => 'never',
+			// Who should receive it?
+			'permission' => array('name' => 'poke', 'is_board' => false),
+			// @TODO Not quite sure on how the HELP index works
+			'help' => 'alert_poke'
+		);
+		
+		// @TODO Not quite sure how group_options works.
+		
+		// We don't need to disable anything here, but here's an
+		// example of how to disable something - i.e. get rid of PM
+		// notifications.
+		$disabled_options[] = 'pm_new';
+		$disabled_options[] = 'pm_reply';
+	}
+	```
+	Create and/or disable alert types.
