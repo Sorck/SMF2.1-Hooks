@@ -1596,12 +1596,6 @@
             "file": "Sources/Likes.php",
             "line": "235"
         },
-		{
-            "hook": "integrate_valid_likes",
-			"param": "array($this->_type, $this->_content, $this->_sa, $this->_js, $this->_extra)",
-            "file": "Sources/Likes.php",
-            "line": "235"
-        },
         {
             "hook": "integrate_verify_user",
 			"param": "",
