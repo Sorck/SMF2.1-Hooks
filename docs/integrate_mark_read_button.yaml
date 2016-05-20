@@ -20,3 +20,8 @@ docs: |
 	}```
 	Adds an extra button at the bottom of the board index (in Curve) next to
 	"MARK ALL MESSAGES AS READ".
+	
+	In SMF Curve Theme the button will have an additional class "button" and either 
+	"button_strip_my_button" (if inactive)
+	or
+	"button_strip_my_buttonactive" (if active).
