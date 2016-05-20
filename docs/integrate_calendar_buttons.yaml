@@ -1,0 +1,26 @@
+title: integrate_calendar_buttons
+params: []
+docs: |
+	Example usage:
+	```php
+	function my_calendar_buttons()
+	{
+		global $scripturl, $context, $txt;
+		
+		$context['calendar_buttons']['my_button'] = array(
+			'text' => 'my_lang_string', // $txt language string key
+			'image' => 'my_btn_image.png', // image for themes that use image buttons
+			// !!! This may not be used in compat.template 'lang' => true, // if false, text is outputed directly - should always be true for an SMF mod to pass mod guidelines
+			'custom' => 'data-confirm="' . $txt['my_confirm_string'] . '"', // additional HTML attributes
+			'class' => 'my_btn_class', // extra HTML class (use "you_sure" for auto confirmation dialogue with data-confirm text)
+			'url' => $scripturl . '?action=myAction;' . $context['session_var'] . '=' . $context['session_id'], // URL
+			'active' => false, // is this an active button? Use this perhaps on a toggle button,
+			'test' => allowedTo('view_this_button'), // if this index is missing, or it evaluates to true, the button displays.
+		);
+	}```
+	Adds an extra button next to the post event button in the calendar.
+	
+	In SMF Curve Theme the button will have an additional class "button" and either 
+	"button_strip_my_button" (if inactive)
+	or
+	"button_strip_my_buttonactive" (if active).
