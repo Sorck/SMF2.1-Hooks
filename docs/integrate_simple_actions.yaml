@@ -1,0 +1,32 @@
+title: integrate_simple_actions
+params:
+	- &$simpleActions
+	- &$simpleAreas
+	- &$simpleSubActions
+docs: |
+	Example usage:
+	```php
+	function my_simple_actions(&$simpleActions, &$simpleAreas, $simpleSubActions)
+	{
+		// Applies to /index.php?action=my_simple_action
+		$simpleActions[] = 'my_simple_action';
+		
+		// Applies to /index.php?area=my_simple_area
+		$simpleAreas[] = 'my_simple_area';
+		
+		// Applies to /index.php?sa=my_simple_sub_action
+		$simpleSubActions[] = 'my_simple_sub_action';
+	}```
+	If any of the URL schemes above apply then the index template will not be
+	loaded. This is used in findmember, fast quote, admin help etc.
+	
+	You should avoid generic areas and subactions for this purpose as they may
+	break other mods using similar names (they will no longer load templates as
+	expected).
+	
+	NB: If you want to output XML then you may be better off appending ?XML as
+	this loads the XML templates.
+	
+	NB: Currently ?area=popup and any other simple actions that don't actually
+	exist (e.g. you intended to use ?action=myAction;area=simpleArea but call
+	just ?area=simpleArea) then the board index loads without full templates)
